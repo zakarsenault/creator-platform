@@ -23,6 +23,7 @@ import {
   Check,
   Settings,
   Eye,
+  BookOpen,
 } from "lucide-react"
 import Link from "next/link"
 
