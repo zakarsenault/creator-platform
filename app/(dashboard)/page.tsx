@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Avatar } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { mockOverview, mockRevenueData, mockOrders, mockProducts, mockTopOffers } from "@/lib/mock-data"
-import { formatCurrency, formatDate, formatRelativeTime } from "@/lib/utils"
+import { formatCurrency, formatRelativeTime } from "@/lib/utils"
 import {
   AreaChart,
   Area,
@@ -51,9 +51,9 @@ export default function DashboardPage() {
           <p className="text-sm text-gray-500 mt-0.5">Here&apos;s what&apos;s happening in your business today.</p>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" asChild>
-            <Link href="/dashboard/products">View products</Link>
-          </Button>
+          <Link href="/dashboard/products" className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-gray-200 px-3 text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+            View products
+          </Link>
           <Button size="sm">
             <Plus className="h-3.5 w-3.5" />
             Create product
@@ -115,7 +115,7 @@ export default function DashboardPage() {
                 <YAxis tick={{ fontSize: 11, fill: "#9ca3af" }} axisLine={false} tickLine={false} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} />
                 <Tooltip
                   contentStyle={{ borderRadius: 8, border: "1px solid #e8e8ed", fontSize: 12 }}
-                  formatter={(val: number) => [formatCurrency(val), "Revenue"]}
+                  formatter={(val) => [formatCurrency(Number(val)), "Revenue"]}
                 />
                 <Area type="monotone" dataKey="revenue" stroke="#7c3aed" strokeWidth={2} fill="url(#revGrad)" />
               </AreaChart>

@@ -10,8 +10,6 @@ import {
   Area,
   BarChart,
   Bar,
-  LineChart,
-  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -118,7 +116,7 @@ export default function AnalyticsPage() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f3" />
                 <XAxis dataKey="date" tick={{ fontSize: 11, fill: "#9ca3af" }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fontSize: 11, fill: "#9ca3af" }} axisLine={false} tickLine={false} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} />
-                <Tooltip contentStyle={{ borderRadius: 8, border: "1px solid #e8e8ed", fontSize: 12 }} formatter={(v: number) => [formatCurrency(v), "Revenue"]} />
+                <Tooltip contentStyle={{ borderRadius: 8, border: "1px solid #e8e8ed", fontSize: 12 }} formatter={(v) => [formatCurrency(Number(v)), "Revenue"]} />
                 <Area type="monotone" dataKey="revenue" stroke="#7c3aed" strokeWidth={2} fill="url(#aGrad)" />
               </AreaChart>
             </ResponsiveContainer>
